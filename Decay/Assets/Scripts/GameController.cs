@@ -17,9 +17,10 @@ public class GameController : MonoBehaviour
             return _gameController;
         }
     }
+
     void Awake()
     {
-        DontDestroyOnLoad(this);
+        _gameController = this;
     }
 
     // Update is called once per frame
