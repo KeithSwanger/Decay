@@ -15,11 +15,18 @@ public class PlayerState_Move : IPlayerState
     public void Enter()
     {
         player.rb.velocity = moveVec;
+        player.StartWalkAnimation();
     }
 
     public void Execute()
     {
         HandleInput();
+
+        if(moveVec == Vector2.zero)
+        {
+            player.ChangeState(new PlayerState_Idle(player));
+            return;
+        }
 
         player.rb.velocity = moveVec * player.Stats.MoveSpeed;
     }
@@ -39,6 +46,6 @@ public class PlayerState_Move : IPlayerState
 
     public void Exit()
     {
-        throw new System.NotImplementedException();
+        //throw new System.NotImplementedException();
     }
 }

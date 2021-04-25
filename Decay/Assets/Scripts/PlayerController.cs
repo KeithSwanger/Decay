@@ -12,7 +12,8 @@ public class PlayerController : MonoBehaviour
     public IPlayerState PlayerState { get; private set; }
     public Rigidbody2D rb;
 
-    public SpriteAnimator spriteAnimator;
+    public SpriteAnimator spriteAnimatorWalk;
+    public SpriteAnimator spriteAnimatorIdle;
 
     public Transform playerBoundsLeft;
     public Transform playerBoundsRight;
@@ -23,11 +24,6 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         ChangeState(new PlayerState_Move(this));
-
-        if (spriteAnimator == null)
-        {
-            spriteAnimator = GetComponent<SpriteAnimator>();
-        }
 
         Stats.InitializePlayerStats();
         Stats.Debt = MainMenuInfo.Instance.debt;
@@ -67,6 +63,18 @@ public class PlayerController : MonoBehaviour
         {
             PlayerState.Enter();
         }
+    }
+
+    public void StartWalkAnimation()
+    {
+        spriteAnimatorIdle.Stop();
+        spriteAnimatorWalk.Play();
+    }
+
+    public void StartIdleAnimation()
+    {
+        spriteAnimatorWalk.Stop();
+        spriteAnimatorIdle.Play();
     }
 
     private void LateUpdate()

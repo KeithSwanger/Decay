@@ -91,8 +91,6 @@ public class PostProcessController : MonoBehaviour
             {
                 currentDistress = targetDistress;
             }
-
-            Debug.Log($"Current Vignette: {vignette.intensity.value}");
         }
 
         vignette.intensity.value = Mathf.Clamp(0.2f + currentDistress * 0.8f, 0f, 1f);

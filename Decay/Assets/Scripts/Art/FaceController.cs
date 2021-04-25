@@ -22,6 +22,11 @@ public class FaceController : MonoBehaviour
         gameController.player.Stats.StatChanged += OnPlayerStatChanged;
     }
 
+    private void Start()
+    {
+        OnPlayerStatChanged(PlayerStat.Debt, 0, 0); // Just to get the right face on start
+    }
+
     private void OnPlayerStatChanged(PlayerStat stat, int oldValue, int newValue)
     {
         PlayerStat highestStat = gameController.player.Stats.GetHighestStat();
