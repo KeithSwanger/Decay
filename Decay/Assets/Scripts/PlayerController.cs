@@ -7,15 +7,20 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public PlayerStats Stats { get; private set; }
+    public PlayerStats Stats { get; private set; } = new PlayerStats();
     public IPlayerState PlayerState { get; private set; }
     public Rigidbody2D rb;
 
-    private void Start()
+    private void Awake()
     {
-        Stats = new PlayerStats();
         rb = GetComponent<Rigidbody2D>();
         ChangeState(new PlayerState_Move(this));
+
+        Stats.InitializePlayerStats();
+        Stats.Debt = MainMenuInfo.Instance.debt;
+        Stats.Depression = MainMenuInfo.Instance.depression;
+        Stats.Disease = MainMenuInfo.Instance.disease;
+        Stats.Distress = MainMenuInfo.Instance.distress;
     }
 
     void Update()
@@ -24,6 +29,15 @@ public class PlayerController : MonoBehaviour
         {
             PlayerState.Execute();
         }
+
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            PlayerStat stat = (PlayerStat)Random.Range(0, 5);
+
+            Stats.AddToStat(stat, Random.Range(-1, 4));
+        }
+        
     }
 
     public void ChangeState(IPlayerState newState)

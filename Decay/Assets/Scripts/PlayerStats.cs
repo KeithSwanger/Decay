@@ -1,11 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
+public enum PlayerStat
+{
+    Debt,
+    Depression,
+    Disease,
+    Distress,
+    Decay
+}
 public class PlayerStats
 {
-    private float _debt = 0f;
-    public float Debt
+    // Stat changed, old value, new value
+    public UnityAction<PlayerStat, int, int> StatChanged;
+
+    private int _debt = 0;
+    public int Debt
     {
         get
         {
@@ -13,12 +25,14 @@ public class PlayerStats
         }
         set
         {
+            int previous = _debt;
             _debt = value;
+            StatChanged?.Invoke(PlayerStat.Debt, previous, value);
         }
     }
 
-    private float _distress = 0f;
-    public float Distress
+    private int _distress = 0;
+    public int Distress
     {
         get
         {
@@ -26,12 +40,14 @@ public class PlayerStats
         }
         set
         {
+            int previous = _distress;
             _distress = value;
+            StatChanged?.Invoke(PlayerStat.Distress, previous, value);
         }
     }
 
-    private float _depression = 0f;
-    public float Depression
+    private int _depression = 0;
+    public int Depression
     {
         get
         {
@@ -39,12 +55,14 @@ public class PlayerStats
         }
         set
         {
+            int previous = _depression;
             _depression = value;
+            StatChanged?.Invoke(PlayerStat.Depression, previous, value);
         }
     }
 
-    private float _disease = 0f;
-    public float Disease
+    private int _disease = 0;
+    public int Disease
     {
         get
         {
@@ -52,12 +70,14 @@ public class PlayerStats
         }
         set
         {
+            int previous = _disease;
             _disease = value;
+            StatChanged?.Invoke(PlayerStat.Disease, previous, value);
         }
     }
 
-    private float _decay = 0f;
-    public float Decay
+    private int _decay = 0;
+    public int Decay
     {
         get
         {
@@ -65,11 +85,13 @@ public class PlayerStats
         }
         set
         {
+            int previous = _decay;
             _decay = value;
+            StatChanged?.Invoke(PlayerStat.Decay, previous, value);
         }
     }
 
-    private float _moveSpeed = 1f;
+    private float _moveSpeed = 7f;
     public float MoveSpeed
     {
         get
@@ -88,17 +110,92 @@ public class PlayerStats
         InitializePlayerStats();
     }
 
-    void InitializePlayerStats()
+    public void InitializePlayerStats()
     {
-        Debt       = 0f;
-        Distress   = 0f;
-        Depression = 0f;
-        Disease    = 0f;
-        Decay      = 0f;
+        Debt = 0;
+        Distress = 0;
+        Depression = 0;
+        Disease = 0;
+        Decay = 1;
 
         MoveSpeed = 7f;
     }
 
+    public void SetStat(PlayerStat stat, int value)
+    {
+        switch (stat)
+        {
+            case (PlayerStat.Debt):
+                {
+                    Debt = value;
+                    break;
+                }
+            case (PlayerStat.Depression):
+                {
+                    Depression = value;
+                    break;
+                }
+            case (PlayerStat.Disease):
+                {
+                    Disease = value;
+                    break;
+                }
+            case (PlayerStat.Distress):
+                {
+                    Distress = value;
+                    break;
+                }
+            case (PlayerStat.Decay):
+                {
+                    Decay = value;
+                    break;
+                }
+            default:
+                {
+                    break;
+                }
+        }
+    }
 
+    public void AddToStat(PlayerStat stat, int value)
+    {
+        switch (stat)
+        {
+            case (PlayerStat.Debt):
+                {
+                    Debt = GetClampedValue(Debt + value);
+                    break;
+                }
+            case (PlayerStat.Depression):
+                {
+                    Depression = GetClampedValue(Depression + value);
+                    break;
+                }
+            case (PlayerStat.Disease):
+                {
+                    Disease = GetClampedValue(Disease + value);
+                    break;
+                }
+            case (PlayerStat.Distress):
+                {
+                    Distress = GetClampedValue(Distress + value);
+                    break;
+                }
+            case (PlayerStat.Decay):
+                {
+                    Decay = GetClampedValue(Decay + value);
+                    break;
+                }
+            default:
+                {
+                    break;
+                }
+        }
+    }
+
+    private int GetClampedValue(int value)
+    {
+        return Mathf.Min(Mathf.Max(value, 0), 10);
+    }
 
 }

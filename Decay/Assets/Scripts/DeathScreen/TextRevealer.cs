@@ -44,7 +44,6 @@ public class TextRevealer : MonoBehaviour
             if (text.maxVisibleCharacters >= text.textInfo.characterCount)
             {
                 IsAllTextVisible = true;
-                Debug.Log("Finished Revealing Character!");
             }
         }
 

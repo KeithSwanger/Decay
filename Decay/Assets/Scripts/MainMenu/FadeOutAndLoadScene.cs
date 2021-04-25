@@ -21,7 +21,10 @@ public class FadeOutAndLoadScene : MonoBehaviour
     void Awake()
     {
         fadeOutImage.color = new Color(fadeOutImage.color.r, fadeOutImage.color.g, fadeOutImage.color.b, 0f);
-        questionaire.QuestionaireCompleted += OnQuestionaireComplete;
+        if (questionaire != null)
+        {
+            questionaire.QuestionaireCompleted += OnQuestionaireComplete;
+        }
     }
 
 
@@ -51,10 +54,15 @@ public class FadeOutAndLoadScene : MonoBehaviour
         }
     }
 
+    public void StartFading()
+    {
+        isFading = true;
+    }
+
 
     private void OnQuestionaireComplete()
     {
-        isFading = true;
+        StartFading();
     }
 
     void OnFadeComplete()

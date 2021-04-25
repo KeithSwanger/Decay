@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MainMenuInfo : MonoBehaviour
+public class MainMenuInfo
 {
     private static MainMenuInfo _instance;
     public static MainMenuInfo Instance
@@ -12,6 +12,7 @@ public class MainMenuInfo : MonoBehaviour
             if(_instance == null)
             {
                 _instance = new MainMenuInfo();
+                Debug.LogError("MainMenuInfo is NULL");
             }
 
             return _instance;
@@ -22,12 +23,6 @@ public class MainMenuInfo : MonoBehaviour
     public int distress = 0;
     public int depression = 0;
     public int disease = 0;
-
-    private void Start()
-    {
-        DontDestroyOnLoad(this);
-        Reset();
-    }
 
     public void Reset()
     {

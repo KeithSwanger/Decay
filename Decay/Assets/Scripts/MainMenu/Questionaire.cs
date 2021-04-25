@@ -15,6 +15,8 @@ public class Questionaire : MonoBehaviour
     public TMP_Text questionTextDisease;
     public TMP_Text questionTextDistress;
     public TMP_Text questionTextDebt;
+    public TMP_Text questionTextDeath;
+
 
     public TMP_Text currentQuestion;
 
@@ -42,6 +44,7 @@ public class Questionaire : MonoBehaviour
         questions.Add(questionTextDisease);
         questions.Add(questionTextDistress);
         questions.Add(questionTextDebt);
+        questions.Add(questionTextDeath);
 
         foreach (TMP_Text q in questions)
         {
@@ -141,6 +144,7 @@ public class Questionaire : MonoBehaviour
         {
             mainMenuInfo.debt = val;
         }
+        Debug.Log($"answered with: {val}");
 
         isCurrentQuestionAnswered = true;
     }

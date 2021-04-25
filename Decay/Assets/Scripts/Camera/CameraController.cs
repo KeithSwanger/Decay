@@ -10,6 +10,7 @@ public class CameraController : MonoBehaviour
     public PostProcessVolume postProcess;
     public ColorGrading colorGrading;
     public Vignette vignette;
+    public Grain grain;
 
 
     private void Start()
@@ -26,6 +27,7 @@ public class CameraController : MonoBehaviour
 
         colorGrading = (ColorGrading)postProcess.profile.settings.Find(x => x.GetType() == typeof(ColorGrading));
         vignette = (Vignette)postProcess.profile.settings.Find(x => x.GetType() == typeof(Vignette));
+        grain = (Grain)postProcess.profile.settings.Find(x => x.GetType() == typeof(Grain));
 
 
     }

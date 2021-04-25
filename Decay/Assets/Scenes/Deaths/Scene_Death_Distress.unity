@@ -311,7 +311,7 @@ GameObject:
   - component: {fileID: 367663285}
   - component: {fileID: 367663284}
   m_Layer: 5
-  m_Name: Text_01_Ailments
+  m_Name: Text_01_Heart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -358,7 +358,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: '
 
-    Resulted in an overworked heart'
+    Led to an overworked heart'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dfcad6a752bc7bd4e85ecd1dbdb9b53e, type: 2}
   m_sharedMaterial: {fileID: 663292028346500005, guid: dfcad6a752bc7bd4e85ecd1dbdb9b53e, type: 2}
@@ -498,7 +498,7 @@ GameObject:
   - component: {fileID: 825816185}
   - component: {fileID: 825816184}
   m_Layer: 5
-  m_Name: Text_02_StillDied
+  m_Name: Text_02_Stopped
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1538,7 +1538,7 @@ GameObject:
   - component: {fileID: 2134245616}
   - component: {fileID: 2134245615}
   m_Layer: 5
-  m_Name: Text_00_Congrats
+  m_Name: Text_00_OverworkedMind
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
