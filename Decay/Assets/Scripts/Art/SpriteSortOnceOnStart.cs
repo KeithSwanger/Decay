@@ -17,6 +17,6 @@ public class SpriteSortOnceOnStart : MonoBehaviour
 
     private void Start()
     {
-        sr.sortingOrder = -Mathf.FloorToInt((gameObject.transform.position.y + offset) * 1000);
+        sr.sortingOrder = -Mathf.FloorToInt((((gameObject.transform.position.y + offset) * 100f) / 100000f) * 32000f);
     }
 }

@@ -2,33 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-using UnityEngine.Rendering.PostProcessing;
 public class CameraController : MonoBehaviour
 {
-    public Camera Camera;
+    public Camera mainCamera;
     public GameObject cameraTarget;
-    public PostProcessVolume postProcess;
-    public ColorGrading colorGrading;
-    public Vignette vignette;
-    public Grain grain;
 
+
+    public Transform cameraBoundLeft;
+    public Transform cameraBoundRight;
+    public Transform cameraBoundTop;
+    public Transform cameraBoundBottom;
 
     private void Start()
     {
-        if (Camera == null)
+        if (mainCamera == null)
         {
-            Camera = GetComponent<Camera>();
+            mainCamera = GetComponent<Camera>();
         }
-
-        if (postProcess == null)
-        {
-            postProcess = GetComponent<PostProcessVolume>();
-        }
-
-        colorGrading = (ColorGrading)postProcess.profile.settings.Find(x => x.GetType() == typeof(ColorGrading));
-        vignette = (Vignette)postProcess.profile.settings.Find(x => x.GetType() == typeof(Vignette));
-        grain = (Grain)postProcess.profile.settings.Find(x => x.GetType() == typeof(Grain));
-
 
     }
 
@@ -56,20 +46,48 @@ public class CameraController : MonoBehaviour
         //saturation = -500f;
 
         saturation = Mathf.Min(Mathf.Max(saturation, -100f), 100f);
-        colorGrading.saturation.value = saturation;
+//colorGrading.saturation.value = saturation;
 
         float intensity = (Mathf.Sin(Time.time) + 1f) / 2f;
         intensity = Mathf.Min(Mathf.Max(intensity, 0.4f), 1f); 
-        vignette.intensity.value = intensity;
+        //vignette.intensity.value = intensity;
 
         //timer += Time.deltaTime;
     }
 
     private void LateUpdate()
     {
+        Vector3 newPosition = mainCamera.transform.position;
+
         if (cameraTarget != null)
         {
-            Camera.transform.position = new Vector3(cameraTarget.transform.position.x, cameraTarget.transform.position.y, Camera.transform.position.z);
+            newPosition.x = cameraTarget.transform.position.x;
+            newPosition.y = cameraTarget.transform.position.y;
         }
+
+        float halfHeight = mainCamera.orthographicSize;
+        float halfWidth = mainCamera.aspect * halfHeight;
+
+        if (cameraTarget.transform.position.x < cameraBoundLeft.position.x + halfWidth)
+        {
+            newPosition.x = cameraBoundLeft.position.x + halfWidth;
+        }
+
+        if(cameraTarget.transform.position.x > cameraBoundRight.position.x - halfWidth)
+        {
+            newPosition.x = cameraBoundRight.position.x - halfWidth;
+        }
+
+        if(cameraTarget.transform.position.y < cameraBoundBottom.position.y + halfHeight)
+        {
+            newPosition.y = cameraBoundBottom.position.y + halfHeight;
+        }
+
+        if (cameraTarget.transform.position.y > cameraBoundTop.position.y - halfHeight)
+        {
+            newPosition.y = cameraBoundTop.position.y - halfHeight;
+        }
+
+        mainCamera.transform.position = newPosition;
     }
 }

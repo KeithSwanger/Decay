@@ -1152,7 +1152,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: '
 
-    You persisted through your ailments'
+    You persist through your ailments'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dfcad6a752bc7bd4e85ecd1dbdb9b53e, type: 2}
   m_sharedMaterial: {fileID: 663292028346500005, guid: dfcad6a752bc7bd4e85ecd1dbdb9b53e, type: 2}

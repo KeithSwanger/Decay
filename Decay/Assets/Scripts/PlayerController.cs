@@ -14,6 +14,11 @@ public class PlayerController : MonoBehaviour
 
     public SpriteAnimator spriteAnimator;
 
+    public Transform playerBoundsLeft;
+    public Transform playerBoundsRight;
+    public Transform playerBoundsTop;
+    public Transform playerBoundsBottom;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -43,7 +48,7 @@ public class PlayerController : MonoBehaviour
         {
             PlayerStat stat = (PlayerStat)Random.Range(0, 5);
 
-            Stats.AddToStat(stat, Random.Range(-1, 4));
+            Stats.AddToStat(stat, Random.Range(-3, 4));
         }
 
     }
@@ -61,6 +66,33 @@ public class PlayerController : MonoBehaviour
         if (newState != null)
         {
             PlayerState.Enter();
+        }
+    }
+
+    private void LateUpdate()
+    {
+        Vector2 newPosition = transform.position;
+        if (transform.position.x < playerBoundsLeft.position.x + 0.5f)
+        {
+            newPosition.x = playerBoundsLeft.position.x + 0.5f;
+        }
+        else if (transform.position.x > playerBoundsRight.position.x - 0.5f)
+        {
+            newPosition.x = playerBoundsRight.position.x - 0.5f;
+        }
+
+        if (transform.position.y < playerBoundsBottom.position.y + 0.5f)
+        {
+            newPosition.y = playerBoundsBottom.position.y + 0.5f;
+        }
+        else if (transform.position.y > playerBoundsTop.position.y - 2f)
+        {
+            newPosition.y = playerBoundsTop.position.y - 2f;
+        }
+
+        if(newPosition.x != transform.position.x || newPosition.y != transform.position.y)
+        {
+            transform.position = newPosition;
         }
     }
 }

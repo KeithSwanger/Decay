@@ -19,6 +19,18 @@ public class SpriteSortOnLateUpdate : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        sr.sortingOrder = -Mathf.FloorToInt((gameObject.transform.position.y + offset) * 1000);
+        sr.sortingOrder = -Mathf.FloorToInt((((gameObject.transform.position.y + offset) * 100f) / 100000f) * 32000f);
+
+        //int newOrder;
+        //if (gameObject.transform.position.y > 0)
+        //{
+        //    newOrder = -Mathf.FloorToInt((gameObject.transform.position.y + offset) * 1000);
+        //}
+
+        //if (newOrder > 0)
+        //{
+        //    newOrder *= -1;
+        //}
+        //sr.sortingOrder = newOrder;
     }
 }

@@ -198,4 +198,42 @@ public class PlayerStats
         return Mathf.Min(Mathf.Max(value, 0), 10);
     }
 
+    public PlayerStat GetHighestStat()
+    {
+        PlayerStat highestStat = PlayerStat.Decay;
+        int highestStatValue = 0;
+
+        if(Debt > highestStatValue)
+        {
+            highestStat = PlayerStat.Debt;
+            highestStatValue = Debt;
+        }
+
+        if(Depression > highestStatValue)
+        {
+            highestStat = PlayerStat.Depression;
+            highestStatValue = Depression;
+        }
+
+        if (Disease > highestStatValue)
+        {
+            highestStat = PlayerStat.Disease;
+            highestStatValue = Disease;
+        }
+
+        if (Distress > highestStatValue)
+        {
+            highestStat = PlayerStat.Distress;
+            highestStatValue = Distress;
+        }
+
+        if (Decay > highestStatValue)
+        {
+            highestStat = PlayerStat.Decay;
+            highestStatValue = Decay;
+        }
+
+        return highestStat;
+    }
+
 }
