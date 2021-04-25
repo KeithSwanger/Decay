@@ -4,6 +4,7 @@ using UnityEngine;
 
 
 [RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(SpriteAnimator))]
 
 public class PlayerController : MonoBehaviour
 {
@@ -11,10 +12,17 @@ public class PlayerController : MonoBehaviour
     public IPlayerState PlayerState { get; private set; }
     public Rigidbody2D rb;
 
+    public SpriteAnimator spriteAnimator;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         ChangeState(new PlayerState_Move(this));
+
+        if (spriteAnimator == null)
+        {
+            spriteAnimator = GetComponent<SpriteAnimator>();
+        }
 
         Stats.InitializePlayerStats();
         Stats.Debt = MainMenuInfo.Instance.debt;
@@ -25,7 +33,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if(PlayerState != null)
+        if (PlayerState != null)
         {
             PlayerState.Execute();
         }
@@ -37,20 +45,20 @@ public class PlayerController : MonoBehaviour
 
             Stats.AddToStat(stat, Random.Range(-1, 4));
         }
-        
+
     }
 
     public void ChangeState(IPlayerState newState)
     {
 
-        if(this.PlayerState != null)
+        if (this.PlayerState != null)
         {
             PlayerState.Exit();
         }
 
         PlayerState = newState;
 
-        if(newState != null)
+        if (newState != null)
         {
             PlayerState.Enter();
         }
