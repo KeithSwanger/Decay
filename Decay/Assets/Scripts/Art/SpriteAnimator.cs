@@ -14,7 +14,7 @@ public class SpriteAnimator : MonoBehaviour
     private int currentFrame = 0;
 
     private bool animate = false;
-    private bool animationHasPlayed = false;
+    public bool AnimationHasPlayed = false;
 
     private float frameLength;
 
@@ -42,7 +42,7 @@ public class SpriteAnimator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (onlyPlayOnce && animationHasPlayed)
+        if (onlyPlayOnce && AnimationHasPlayed)
         {
             // Do nothing because the last frame is showing
         }
@@ -71,7 +71,7 @@ public class SpriteAnimator : MonoBehaviour
 
         if (currentFrame >= sprites.Length)
         {
-            animationHasPlayed = true;
+            AnimationHasPlayed = true;
 
             if (onlyPlayOnce)
             {

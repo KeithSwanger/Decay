@@ -144,7 +144,6 @@ public class Questionaire : MonoBehaviour
         {
             mainMenuInfo.debt = val;
         }
-        Debug.Log($"answered with: {val}");
 
         isCurrentQuestionAnswered = true;
     }

@@ -108,7 +108,5 @@ public class BuildingVisitController : MonoBehaviour
         player.Stats.AddToStat(PlayerStat.Disease,    modifyDisease);
         player.Stats.AddToStat(PlayerStat.Distress,   modifyDistress);
         player.Stats.AddToStat(PlayerStat.Decay,      modifyDecay);
-
-        Debug.Log("modified stats!");
     }
 }

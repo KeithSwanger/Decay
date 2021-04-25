@@ -18,13 +18,8 @@ public class ButtonTextSizeOnMouseOver : MonoBehaviour, IPointerEnterHandler, IP
     void Awake()
     {
         normalFontSize = text.fontSize;
-        button.onClick.AddListener(OnButtonClick);
     }
 
-    public void OnButtonClick()
-    {
-        Debug.Log("Button Clicked!");
-    }
 
     public void OnPointerEnter(PointerEventData eventData)
     {

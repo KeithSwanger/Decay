@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour
     public Transform playerBoundsTop;
     public Transform playerBoundsBottom;
 
+    public bool IsInvincible = false;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -38,15 +40,6 @@ public class PlayerController : MonoBehaviour
         {
             PlayerState.Execute();
         }
-
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            PlayerStat stat = (PlayerStat)Random.Range(0, 5);
-
-            Stats.AddToStat(stat, Random.Range(-3, 4));
-        }
-
     }
 
     public void ChangeState(IPlayerState newState)

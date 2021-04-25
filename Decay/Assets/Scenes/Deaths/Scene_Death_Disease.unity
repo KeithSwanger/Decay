@@ -281,7 +281,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: The disease progressed too far
+  m_text: Your disease had progressed too far
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dfcad6a752bc7bd4e85ecd1dbdb9b53e, type: 2}
   m_sharedMaterial: {fileID: 663292028346500005, guid: dfcad6a752bc7bd4e85ecd1dbdb9b53e, type: 2}
