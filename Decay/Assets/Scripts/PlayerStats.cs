@@ -159,6 +159,11 @@ public class PlayerStats
 
     public void AddToStat(PlayerStat stat, int value)
     {
+        if(value == 0)
+        {
+            return;
+        }
+
         switch (stat)
         {
             case (PlayerStat.Debt):
@@ -234,6 +239,37 @@ public class PlayerStats
         }
 
         return highestStat;
+    }
+
+    public int GetStatVal(PlayerStat stat)
+    {
+        switch (stat)
+        {
+            case (PlayerStat.Debt):
+                {
+                    return Debt;
+                }
+            case (PlayerStat.Depression):
+                {
+                    return Depression;
+                }
+            case (PlayerStat.Disease):
+                {
+                    return Disease;
+                }
+            case (PlayerStat.Distress):
+                {
+                    return Distress;
+                }
+            case (PlayerStat.Decay):
+                {
+                    return Decay;
+                }
+            default:
+                {
+                    return -1;
+                }
+        }
     }
 
 }

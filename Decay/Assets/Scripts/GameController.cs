@@ -26,6 +26,9 @@ public class GameController : MonoBehaviour
 
     public CameraController cameraController;
 
+    public DayManager dayManager;
+
+
     void Awake()
     {
         mainMenuInfo = MainMenuInfo.Instance;
@@ -40,8 +43,8 @@ public class GameController : MonoBehaviour
             player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         }
 
-        fadeController.SetAlpha(1f);
-        fadeController.StartFadeIn(2f);
+        globalFadeController.SetAlpha(1f);
+        globalFadeController.StartFadeIn(2f);
     }
 
     // Update is called once per frame

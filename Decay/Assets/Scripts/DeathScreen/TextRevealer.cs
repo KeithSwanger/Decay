@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using TMPro;
 
 public class TextRevealer : MonoBehaviour
 {
+    public UnityAction TextRevealFinished;
+
     public TMP_Text text;
     int charPosition = 0;
 
@@ -24,6 +27,15 @@ public class TextRevealer : MonoBehaviour
         text.maxVisibleCharacters = 0;
         characterRevealCounter = characterRevealDelay;
         pauseBeforeFinishCounter = pauseBeforeFinishDelay;
+    }
+
+    public void ResetRevealer()
+    {
+        text.maxVisibleCharacters = 0;
+        characterRevealCounter = characterRevealDelay;
+        pauseBeforeFinishCounter = pauseBeforeFinishDelay;
+        IsFinished = false;
+        IsAllTextVisible = false;
     }
 
 
@@ -55,6 +67,7 @@ public class TextRevealer : MonoBehaviour
             if(pauseBeforeFinishCounter <= 0)
             {
                 IsFinished = true;
+                TextRevealFinished?.Invoke();
             }
 
             pauseBeforeFinishCounter -= Time.deltaTime;

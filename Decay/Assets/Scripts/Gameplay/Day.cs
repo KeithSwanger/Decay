@@ -4,18 +4,6 @@ using UnityEngine;
 
 public class Day : MonoBehaviour
 {
-    public float placesVisited = 0;
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public int maxPlacesToVisit = 2;
+    public List<BuildingType> placesVisited { get; private set; } = new List<BuildingType>();
 }
