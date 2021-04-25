@@ -15,15 +15,9 @@ public class DiseaseSpawner : MonoBehaviour
         player = GameController.Instance.player;
         spawnTimer = spawnTimerReset;
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
 
     private void Update()
     {
-
         if(spawnTimer <= 0f)
         {
             spawnTimer = spawnTimerReset;
@@ -35,6 +29,12 @@ public class DiseaseSpawner : MonoBehaviour
 
     private void TrySpawn()
     {
+        if (player.IsInvincible)
+        {
+            //Player is on a black screen, don't spawn
+            return;
+        }
+
         int enemiesToSpawn = player.Stats.Disease * player.Stats.Decay / 2;
 
         if(Random.value < ((float)player.Stats.Disease * (float)player.Stats.Decay / 100f)) // The higher diseaese and decay are, the more likely they are to spawn

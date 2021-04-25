@@ -131,6 +131,11 @@ public class HouseVisitController : MonoBehaviour
     {
         gameController.player.Stats.AddToStat(PlayerStat.Decay, 1);
 
+        if(gameController.player.Stats.Decay >= 10)
+        {
+            return; // Game over, don't start revealing text because it will not look nice
+        }
+
         topTextRevealer.ResetRevealer();
         middleTextRevealer.ResetRevealer();
         bottomTextRevealer.ResetRevealer();
