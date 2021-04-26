@@ -9,7 +9,7 @@ public class CloudSpawner : MonoBehaviour
 
 
     float spawnTimer;
-    float spawnTimerReset = 2.5f;
+    float spawnTimerReset = 3f;
     private void Awake()
     {
         player = GameController.Instance.player;
@@ -36,7 +36,8 @@ public class CloudSpawner : MonoBehaviour
         }
 
         //if (Random.value < ((float)player.Stats.Depression * (float)player.Stats.Decay / 100f)) // The higher diseaese and decay are, the more likely they are to spawn
-        if (Random.value < (((float)player.Stats.Depression + (float)player.Stats.Depression) / 100)) // maximum of 18% chance to spawn every 2.5 seconds
+        //if (Random.value < (((float)player.Stats.Depression + (float)player.Stats.Decay) / 100)) // maximum of 18% chance to spawn every 2.5 seconds
+        if (Random.value < ((((float)player.Stats.Depression * (float)player.Stats.Decay) * 0.75f) / 100)) // maximum of 18% chance to spawn every 2.5 seconds
         {
             Vector2 spawnLocation;
             spawnLocation.x = player.transform.position.x;

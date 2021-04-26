@@ -118,7 +118,7 @@ public class PlayerStats
         Disease = 0;
         Decay = 1;
 
-        MoveSpeed = 7f;
+        MoveSpeed = 10f;
     }
 
     public void SetStat(PlayerStat stat, int value)

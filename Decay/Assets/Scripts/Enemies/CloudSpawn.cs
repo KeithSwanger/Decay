@@ -33,7 +33,7 @@ public class CloudSpawn : MonoBehaviour
     {
         spriteRenderer.sprite = spawnAnimator.sprites[0];
         player = GameController.Instance.player;
-        transform.position = new Vector2(player.transform.position.x, player.transform.position.y + 0.3f); // Account for player's pivot
+        transform.position = new Vector2(player.transform.position.x, player.transform.position.y + 1.3f); // Account for player's pivot
     }
 
     private void Start()
@@ -98,7 +98,10 @@ public class CloudSpawn : MonoBehaviour
 
     public void SetVelocityTowardPlayer()
     {
-        Vector2 moveVector = player.transform.position - transform.position;
+        Vector3 playerLocation = player.transform.position;
+        playerLocation.y += 1.3f;
+
+        Vector2 moveVector = playerLocation - transform.position;
         moveVector = moveVector.normalized;
         rigidBody.velocity = moveVector * moveSpeed;
     }

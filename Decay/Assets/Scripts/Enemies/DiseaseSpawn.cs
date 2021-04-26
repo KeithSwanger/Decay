@@ -15,7 +15,7 @@ public class DiseaseSpawn : MonoBehaviour
 
     bool isDangerous = false;
 
-    float timeAliveCounter = 15f;
+    float timeAliveCounter = 6f;
 
     private enum State
     {

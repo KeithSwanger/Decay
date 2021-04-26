@@ -121,8 +121,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 0}
   sprites:
-  - {fileID: 3349391187094723686, guid: dcc20efca0161bb4da6370aaf07c1225, type: 3}
-  - {fileID: -1551757773269413495, guid: dcc20efca0161bb4da6370aaf07c1225, type: 3}
   - {fileID: 6357164628407952830, guid: dcc20efca0161bb4da6370aaf07c1225, type: 3}
   - {fileID: -5435620906133849245, guid: dcc20efca0161bb4da6370aaf07c1225, type: 3}
   - {fileID: -28517974525256933, guid: dcc20efca0161bb4da6370aaf07c1225, type: 3}
@@ -245,4 +243,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sr: {fileID: 0}
-  offset: -200
+  offset: -300

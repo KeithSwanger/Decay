@@ -124,13 +124,6 @@ MonoBehaviour:
   - {fileID: -2308293434036953714, guid: 98d50b47c458f6b4daab0888bc1ae37b, type: 3}
   - {fileID: -4199900635095162823, guid: 98d50b47c458f6b4daab0888bc1ae37b, type: 3}
   - {fileID: -2393277287671276737, guid: 98d50b47c458f6b4daab0888bc1ae37b, type: 3}
-  - {fileID: -5060719089501122371, guid: 98d50b47c458f6b4daab0888bc1ae37b, type: 3}
-  - {fileID: 6272270815343769977, guid: 98d50b47c458f6b4daab0888bc1ae37b, type: 3}
-  - {fileID: 1094912951687827720, guid: 98d50b47c458f6b4daab0888bc1ae37b, type: 3}
-  - {fileID: 2452809871146361311, guid: 98d50b47c458f6b4daab0888bc1ae37b, type: 3}
-  - {fileID: 8027251294028778224, guid: 98d50b47c458f6b4daab0888bc1ae37b, type: 3}
-  - {fileID: 6018954033571772227, guid: 98d50b47c458f6b4daab0888bc1ae37b, type: 3}
-  - {fileID: 7567723961010512217, guid: 98d50b47c458f6b4daab0888bc1ae37b, type: 3}
   frameRate: 8
   playOnStart: 0
   onlyPlayOnce: 1
