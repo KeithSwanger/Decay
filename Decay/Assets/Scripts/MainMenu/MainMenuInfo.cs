@@ -12,7 +12,6 @@ public class MainMenuInfo
             if(_instance == null)
             {
                 _instance = new MainMenuInfo();
-                Debug.LogError("MainMenuInfo is NULL");
             }
 
             return _instance;

@@ -133,6 +133,7 @@ public class HouseVisitController : MonoBehaviour
 
         if(gameController.player.Stats.Decay >= 10)
         {
+            gameController.player.ChangeState(new PlayerState_Visiting(gameController.player));
             return; // Game over, don't start revealing text because it will not look nice
         }
 

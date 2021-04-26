@@ -18,6 +18,9 @@ public class GameController : MonoBehaviour
         }
     }
 
+    public SoundManager soundManager { get; private set; }
+    public AudioClip themeSong;
+
     public PlayerController player;
 
     MainMenuInfo mainMenuInfo;
@@ -31,6 +34,7 @@ public class GameController : MonoBehaviour
 
     void Awake()
     {
+        soundManager = SoundManager.Instance;
         mainMenuInfo = MainMenuInfo.Instance;
 
         if(fadeController == null)
@@ -47,9 +51,11 @@ public class GameController : MonoBehaviour
         globalFadeController.StartFadeIn(2f);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        if (!soundManager.isPlayingMusic)
+        {
+            soundManager.PlayMusic(themeSong, 0.5f);
+        }
     }
 }

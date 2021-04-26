@@ -539,6 +539,7 @@ GameObject:
   - component: {fileID: 225598145}
   - component: {fileID: 225598146}
   - component: {fileID: 225598147}
+  - component: {fileID: 225598148}
   m_Layer: 0
   m_Name: MainMenuController
   m_TagString: Untagged
@@ -599,6 +600,19 @@ MonoBehaviour:
   fadeOutImage: {fileID: 385787071}
   questionaire: {fileID: 225598146}
   fadeOutTime: 2
+--- !u!114 &225598148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 225598144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42af6442e7dcded428bf4f0b5dae1695, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  music: {fileID: 8300000, guid: 3d7f645e6ce8c844196ffdf849d4a12b, type: 3}
 --- !u!1 &245557870
 GameObject:
   m_ObjectHideFlags: 0

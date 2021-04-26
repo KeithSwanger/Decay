@@ -7,18 +7,16 @@ public class SoundManager : MonoBehaviour
 {
 
     private static SoundManager _instance = null;
-    public static SoundManager instance
+    public static SoundManager Instance
     {
         get
         {
             if (_instance == null)
             {
-                // Create sound manager here
-                GameObject i = new GameObject();
-                _instance = i.AddComponent<SoundManager>();
-                i.name = "Sound Manager";
+                GameObject go = new GameObject();
+                _instance = go.AddComponent<SoundManager>();
+                go.name = "Sound Manager";
             }
-
             return _instance;
         }
     }
