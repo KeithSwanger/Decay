@@ -1,4 +1,4 @@
-# decay
+# Decay
 LDJam48
 
 
